@@ -46,6 +46,12 @@ if [ ! -f ${cache_target} ]; then
   curl -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
   chmod +x ${target}/bin/launch
 
+  # download mysql
+  echo "-----> Downloading mysql-client..."
+  curl -s http://str.cloudn-service.com/files.udcp.info/buildpacks/mysql > ${target}/bin/mysql
+  chmod +x ${target}/bin/mysql
+
+
   #Create cache slug
   tar czf ${cache_target} -C ${target} .
 fi
@@ -55,6 +61,7 @@ tar xzf ${cache_target} -C ${build_target}
 
 chmod +x ${build_target}/bin/tmate
 chmod +x ${build_target}/bin/launch
+chmod +x ${build_target}/bin/mysql
 
 mkdir -p $build/.profile.d
 echo 'export LD_LIBRARY_PATH=/app/lib' > $build/.profile.d/tmate.sh
