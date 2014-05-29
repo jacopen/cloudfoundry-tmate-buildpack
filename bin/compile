@@ -19,6 +19,7 @@ libe_dir="libevent-${libe_version}-stable"
 libe_file="${libe_dir}.tar.gz"
 libe_url="http://cloud.github.com/downloads/libevent/libevent/${libe_file}"
 
+bp_dir=`dirname ${0}`
 cache_target=${cache}/${tmate_file}
 build_target=${build}
 target=/app/.local
@@ -68,7 +69,7 @@ chmod +x ${build_target}/bin/tmate
 chmod +x ${build_target}/bin/launch
 chmod +x ${build_target}/bin/mysql
 chmod +x ${build_target}/bin/jq
-cp $0/bin/main.py ${build_target}/bin/
+cp ${bp_dir}/main.py ${build_target}/bin/
 
 mkdir -p $build/.profile.d
 echo 'export LD_LIBRARY_PATH=/app/lib' > $build/.profile.d/tmate.sh
