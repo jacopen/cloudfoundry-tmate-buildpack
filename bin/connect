@@ -1,4 +1,4 @@
-__author__ = 'jacopen'
+#!/usr/bin/python
 import json
 import os
 import re
@@ -15,20 +15,20 @@ for key, value in env.iteritems():
 
 
 for index, service in enumerate(services):
-    print "{} {}".format(str(index), service['name'])
+    print "{0} {1}".format(str(index), service['name'])
 
 print "choose service"
 input = raw_input()
 
 selected = services[int(input)]
-print "selected {}".format(selected['name'])
+print "selected {0}".format(selected['name'])
 
 credentials = selected['credentials']
 
 if re.match(r'mysql', selected['label']):
-    cmd = "mysql -u {} -h {} -P {} -p{} {}".format(credentials['user'], credentials['host'], credentials['port'],credentials['password'], credentials['name'])
+    cmd = "mysql -u {0} -h {1} -P {2} -p{3} {4}".format(credentials['user'], credentials['host'], credentials['port'],credentials['password'], credentials['name'])
 elif re.match(r'postgresql', selected['label']):
-    cmd = "PGPWSSWD={} psql -U {} -h {} -p {} -d {}".format(credentials['password'], credentials['user'], credentials['host'], credentials['port'], credentials['name'])
+    cmd = "PGPWSSWD={0} psql -U {1} -h {2} -p {3} -d {4}".format(credentials['password'], credentials['user'], credentials['host'], credentials['port'], credentials['name'])
 else:
     print "Don't support this service type."
     exit()

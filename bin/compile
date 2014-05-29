@@ -69,7 +69,8 @@ chmod +x ${build_target}/bin/tmate
 chmod +x ${build_target}/bin/launch
 chmod +x ${build_target}/bin/mysql
 chmod +x ${build_target}/bin/jq
-cp ${bp_dir}/main.py ${build_target}/bin/
+cp ${bp_dir}/connect ${build_target}/bin/
+chmod +x ${build_target}/bin/connect
 
 mkdir -p $build/.profile.d
 echo 'export LD_LIBRARY_PATH=/app/lib' > $build/.profile.d/tmate.sh
