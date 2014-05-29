@@ -33,5 +33,4 @@ else:
     print "Don't support this service type."
     exit()
 
-#print cmd
-os.system('top')
+os.system(cmd)
