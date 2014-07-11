@@ -17,7 +17,7 @@ tmate_file="tmate.tgz"
 libe_version="2.0.21"
 libe_dir="libevent-${libe_version}-stable"
 libe_file="${libe_dir}.tar.gz"
-libe_url="http://cloud.github.com/downloads/libevent/libevent/${libe_file}"
+libe_url="https://cloud.github.com/downloads/libevent/libevent/${libe_file}"
 
 cache_target=${cache}/${tmate_file}
 build_target=${build}
