@@ -31,7 +31,7 @@ if [ ! -f ${cache_target} ]; then
 
   echo "-----> Compiling libevent v${libe_version}..."
   #Compile libevent
-  curl -s ${libe_url} > ${libe_file}
+  curl -L -s ${libe_url} > ${libe_file}
   tar zxf ${libe_file}
   cd ${libe_dir}
   ./configure --prefix=${target} | indent
@@ -40,22 +40,22 @@ if [ ! -f ${cache_target} ]; then
 
   # download tmate
   echo "-----> Downloading tmate..."
-  curl -s https://s3.amazonaws.com/tmate-buildpack-assets/tmate > ${target}/bin/tmate
+  curl -L -s https://s3.amazonaws.com/tmate-buildpack-assets/tmate > ${target}/bin/tmate
   chmod +x ${target}/bin/tmate
 
   # download unbuffer
   echo "-----> Downloading launcher..."
-  curl -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
+  curl -L -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
   chmod +x ${target}/bin/launch
 
   # download mysql
   echo "-----> Downloading mysql-client..."
-  curl -s http://str.cloudn-service.com/files.udcp.info/buildpacks/mysql > ${target}/bin/mysql
+  curl -L -s http://str.cloudn-service.com/files.udcp.info/buildpacks/mysql > ${target}/bin/mysql
   chmod +x ${target}/bin/mysql
 
   # download jq
   echo "-----> Downloading jq..."
-  curl -s http://stedolan.github.io/jq/download/linux64/jq > ${target}/bin/jq
+  curl -L -s http://stedolan.github.io/jq/download/linux64/jq > ${target}/bin/jq
   chmod +x ${target}/bin/jq
 
   #Create cache slug
